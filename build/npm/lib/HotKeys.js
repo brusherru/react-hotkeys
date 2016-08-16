@@ -81,6 +81,9 @@ var HotKeys = (0, _createReactClass2.default)({
     keyMap: _propTypes2.default.object,
     handlers: _propTypes2.default.object,
     focused: _propTypes2.default.bool, // externally controlled focus
+    always: _react2.default.PropTypes.bool, // if true — always handle hotkey,
+    // even if parent is already handled it
+    // default: false
     attach: _propTypes2.default.any // dom element to listen for key events
   },
 
@@ -154,7 +157,7 @@ var HotKeys = (0, _createReactClass2.default)({
           var isFocused = (0, _isBoolean2.default)(_this.props.focused) ? _this.props.focused : _this.__isFocused__;
 
           if (isFocused && sequence !== _this.__lastChildSequence__) {
-            if (_this.context.hotKeyParent) {
+            if (_this.context.hotKeyParent && !_this.props.always) {
               _this.context.hotKeyParent.childHandledSequence(sequence);
             }
 
