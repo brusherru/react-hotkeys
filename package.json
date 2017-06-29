@@ -42,7 +42,8 @@
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register lib/**/__tests__/*.js",
     "build-global": "bash ./scripts/build-global",
-    "build-npm": "bash ./scripts/build-npm"
+    "build-npm": "bash ./scripts/build-npm",
+    "push-for-npm": "git push origin :npm && git subtree push --prefix build/npm origin npm"
   },
   "author": "Chris Pearce <hello@chrispearce.me> (chrispearce.co)",
   "license": "MIT",
